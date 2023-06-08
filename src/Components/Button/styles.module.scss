@@ -1,0 +1,64 @@
+.btn {
+    padding: 8px 24px;
+    border-radius: 3px;
+    background-color: #ff5151;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: transparent;
+    color: #ff5151;
+    border: 1px solid #ff5151;
+  }
+  
+  .btn.btn-light {
+    background-color: #fff;
+    color: #222;
+  }
+  
+  .btn.btn-light:hover {
+    border: 1px solid #ffb700;
+    color: #ffb700;
+    background-color: transparent;
+  }
+  
+  .btn.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn.btn-primary:hover {
+    border: 1px solid #007bff;
+    color: #007bff;
+    background-color: transparent;
+  }
+  
+  .btn.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn.btn-danger:hover {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    background-color: transparent;
+  }
+  
+  .btn.btn-custom {
+    border: 1px solid #333;
+    color: #fff;
+    background-color: #333;
+  }
+  
+  .btn.btn-custom:hover {
+    border: 1px solid #333;
+    color: #333;
+    background-color: transparent;
+  }
+  
+  /* Add more button styles as needed */

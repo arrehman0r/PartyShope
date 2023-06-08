@@ -1,0 +1,117 @@
+.product-image img {
+    width: 50px;
+  }
+  
+  .shopping-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .single-product {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+  }
+  
+  .single-product > div {
+    display: flex;
+    width: 16.666%;
+    justify-content: space-around;
+  }
+  
+  .single-product h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #808080;
+  }
+  
+  .cart-header {
+    font-weight: bold;
+  }
+  
+  .cart-item-quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-button {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .quantity-value {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 992px) {
+    .single-product > div {
+      width: 25%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .single-product {
+      flex-wrap: wrap;
+    }
+  
+    .product-image {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .cart-item-quantity,
+    .cart-item-price,
+    .cart-item-total {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .single-product > div {
+      width: 50%;
+    }
+  
+    .cart-item-title {
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+  
+  .cart {
+    margin: 40px auto;
+  }
+  
+  .cart-actions {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .remove-button {
+    font-weight: bold;
+    font-size: 14px;
+    color: #dc3545;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+  .empty {
+    font-style: italic;
+    margin-bottom: 20px;
+  }

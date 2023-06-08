@@ -8,7 +8,7 @@ import { SpecialEvents } from './Pages/SpecialEvents';
 import { LoginPage } from './Pages/LoginPage';
 import { SignUpPage } from './Pages/SignUpPage';
 import { RenderProduct } from './Components/RenderProduct/RenderProduct';
-import { Checkout } from './Pages/Checkout';
+import Cart from './Pages/Cart/Cart';
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Route path = "/login" element = {<LoginPage/>}/>
         <Route path = "/sign-up" element={<SignUpPage/>}/>
         <Route path = "/product-detail/:id" element={<RenderProduct/>}/>
-        <Route path= "/product-detail/:id/checkout" element={<Checkout/>}/>
+        <Route path= "/product-detail/:id/cart" element={<Cart/>}/>
 
 
       </Routes>
