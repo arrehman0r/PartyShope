@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../Components/Navbar/Navbar';
+import { AppNavbar } from '../Components/Navbar/Navbar';
 import { TopBar } from '../Components/TopBar/TopBar';
 import { Footer } from '../Components/Footer/Footer';
 
@@ -10,7 +10,7 @@ export const AboutUs=()=>{
     
     <TopBar/>
 
-    <Navbar/>
+    <AppNavbar/>
     <p>PartyShope is a premier online platform that specializes in providing all your party needs in one place. We are dedicated to making your party planning experience easy, convenient, and enjoyable. Whether you're hosting a birthday party, wedding celebration, or any other special event, PartyShope has got you covered.
 
 At PartyShope, we offer a wide range of party supplies, decorations, and accessories to suit various themes and occasions. From vibrant balloons and elegant tableware to festive banners and party favors, our extensive collection ensures that you can find everything you need to create a memorable and unforgettable party atmosphere.

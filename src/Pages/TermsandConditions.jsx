@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../Components/Navbar/Navbar';
+import { AppNavbar } from '../Components/Navbar/Navbar';
 import { TopBar } from '../Components/TopBar/TopBar';
 import { Footer } from '../Components/Footer/Footer';
 
@@ -10,7 +10,7 @@ export const TermsandConditions=()=>{
     
     <TopBar/>
 
-    <Navbar/>
+    <AppNavbar/>
     <h1>Terms and Conditions</h1>
     <p>
 Welcome to PartyShope!

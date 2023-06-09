@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "../../Components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../../actions/cartActions";
+import { deleteFromCart } from "./../../reducers/cart";
 import styles from "./styles.module.scss";
 
 function CartPage() {
@@ -11,7 +11,7 @@ function CartPage() {
   const dispatch = useDispatch();
 
   const handleRemove = (itemId) => {
-    dispatch(removeFromCart(itemId));
+    dispatch(deleteFromCart(itemId));
   };
 
   const getTotalPrice = (item) => {

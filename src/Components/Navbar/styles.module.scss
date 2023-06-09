@@ -1,21 +1,14 @@
-.superNavDiv{
- display: flex;
- justify-content: space-between;
- padding: 1rem;
- width: 100%;
- .navLogo{
-  img{
-    width: 10rem;
-    margin-left: 1rem;
+.navbar{
+  background-color: #fff;
+  height: 13vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      .item{
+          text-decoration: none;
+       margin-left: 15px;
+       i{
+          font-size: 24px;
+       }
   }
- }
 
-
+ 
 }
-
-
-a {
-    text-decoration: none !important;
-    color: black !important;
-  }
-  

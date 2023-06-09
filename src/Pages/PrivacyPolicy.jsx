@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../Components/Navbar/Navbar';
+import { AppNavbar } from '../Components/Navbar/Navbar';
 import { TopBar } from '../Components/TopBar/TopBar';
 import { Footer } from '../Components/Footer/Footer';
 
@@ -9,7 +9,7 @@ export const PrivacyPolicy=()=>{
     return(<>
     
     <TopBar/>
-    <Navbar/>
+    <AppNavbar/>
     <h1>Privacy Policy for PartyShope</h1>
     <p>
     Privacy Policy for PartyShope

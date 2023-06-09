@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Col, Container, Row } from "reactstrap";
 import axios from "axios";
-import { Navbar } from "../Navbar/Navbar";
+import { AppNavbar} from "../Navbar/Navbar";
 import { Footer } from "../Footer/Footer";
 import styles from "./styles.module.scss";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../reducers/cart";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "./../../reducers/cart";
 
 export const RenderProduct = () => {
   const { id } = useParams();
@@ -22,16 +22,14 @@ export const RenderProduct = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      dispatch(addToCart(product.id));
+      dispatch(addToCart(product));
       setShowPopup(true);
     }
   };
 
-  
-
   return (
     <>
-      <Navbar />
+      <AppNavbar />
       <Container className={styles.containerStyles}>
         {product ? (
           <div>
@@ -55,6 +53,7 @@ export const RenderProduct = () => {
                 <Button
                   color="primary"
                   className={`mr-3 ${styles.BuyNowButton}`}
+                  onClick={handleAddToCart}
                 >
                   Buy Now
                 </Button>

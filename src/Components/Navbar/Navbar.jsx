@@ -1,185 +1,64 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import CelebrationIcon from '@mui/icons-material/Celebration';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.scss";
+import { useSelector } from "react-redux";
 
-const pages = [
-  { label: 'Birthday Decor', path: '/birthday-decor' },
-  { label: 'Anniversary Decor', path: '/anniversary-decor' },
-  { label: 'Special Events', path: '/special-events' },
-  { label: 'Contact Us', path: '/contact-us' },
-];
-
-const settings = [
-  { label: 'Account', path: '/account' },
-  { label: 'Login', path: '/login' },
-  { label: 'Signup', path: '/sign-up' }
-];
-
-export const Navbar = () => {
-  const navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const settingsPath = (path) => {
-    navigate(path);
-    handleCloseUserMenu();
-  };
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+export const AppNavbar = () => {
+  const cart = useSelector((state) => state.cart);
   return (
-    <AppBar position="static" sx={{ bgcolor: 'skyblue' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <CelebrationIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Party Shop
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                  <Link to={page.path} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <Typography textAlign="center">{page.label}</Typography>
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <CelebrationIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Party Shop
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.label}
-                component={Link}
-                to={page.path}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.label}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting.label} onClick={() => settingsPath(setting.path)}>
-                  <Typography textAlign="center">{setting.label}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <div className="mb-5">
+      <Navbar collapseOnSelect expand="lg" fixed="top" className={styles.navbar}>
+        <Container fluid>
+          <Link to="/" className={styles.item}>
+            <Navbar.Brand href="#home">E-Commerce</Navbar.Brand>
+          </Link>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto center">
+              <Link to="/" className={styles.item}>
+                <Nav.Link href="#/">Home</Nav.Link>
+              </Link>
+              <Link to="/products" className={styles.item}>
+                <Nav.Link href="#features">All Products</Nav.Link>
+              </Link>
+              <Link to="/blogs" className={styles.item}>
+                <Nav.Link href="#pricing">Blogs</Nav.Link>
+              </Link>
+              <Link to="/about" className={styles.item}>
+                <Nav.Link href="#about">About Us</Nav.Link>
+              </Link>
+              <Link to="/contact" className={styles.item}>
+                <Nav.Link href="#contact">Contact Us</Nav.Link>
+              </Link>
+            </Nav>
+            <Nav>
+              <Link to="./login" className={styles.item}>
+                <Nav.Link href="#Login">
+                  <i className="fa-solid fa-right-to-bracket"></i>
+                </Nav.Link>
+              </Link>
+              <Link to="./cart" className={styles.item}>
+                <Nav.Link href="#cart">
+                  <i className="fa-solid fa-cart-shopping position-relative">
+                    <span
+                      style={{
+                        fontSize: "10px",
+                      }}
+                      className="position-absolute top-0 start-100 translate-middle badge bg-danger"
+                    >
+                      {cart?.cartItems?.length || 0}
+                      <span className="visually-hidden">unread messages</span>
+                    </span>
+                  </i>
+                </Nav.Link>
+              </Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
