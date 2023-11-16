@@ -12,11 +12,11 @@ const Checkout = () => {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    if (location?.state !== "cart" || !cart.length) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (location?.state !== "cart" || !cart.length) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   return (
     <>

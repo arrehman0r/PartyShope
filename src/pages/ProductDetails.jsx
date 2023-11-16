@@ -41,7 +41,7 @@ const ProductDetails = () => {
   return (
     <div className="md:min-h-[80vh] flex justify-center items-center pt-5 sm:pt-3 pb-2 relative">
       <main className="grid grid-rows-1 sm:grid-cols-2 gap-2 sm:gap-10 ">
-        <section className="relative p-3 bg-black/[0.075]  flex items-center justify-center rounded-lg">
+        <section className="relative p-7 bg-black/[0.075]  flex items-center justify-center rounded-lg">
           <img
             src={product?.image}
             alt=""
@@ -78,10 +78,10 @@ const ProductDetails = () => {
                 </li>
               </div>
               <div>
-                {/* <li>
+                <li>
                   <span className="text-gray-500 text-sm">Gender: </span>
                   {product?.gender}
-                </li> */}
+                </li>
                 <li>
                   <span className="text-gray-500 text-sm">Heavy: </span>
                   {product?.weight}
@@ -105,11 +105,16 @@ const ProductDetails = () => {
               className="btn-rounded-secondary flex items-center gap-2 text-sm disabled:cursor-not-allowed"
               disabled={disableCart}
               onClick={() => {
-                if (!product?.inCart) {
-                  addProductToCart(product);
-                  notify("success", "Product added to cart");
+                if (false) {
+                  navigate("/login", { state: { from: location.pathname } });
+                  notify("warn", "Please Login to continue");
                 } else {
-                  // navigate("/cart");
+                  if (!product?.inCart) {
+                    addProductToCart(product);
+                    console.log("prodcut added to cart");
+                  } else {
+                    navigate("/cart");
+                  }
                 }
               }}
             >
@@ -121,10 +126,16 @@ const ProductDetails = () => {
               className="btn-rounded-primary rounded-full flex items-center gap-2 text-sm disabled:cursor-not-allowed"
               disabled={disableWish}
               onClick={() => {
-                if (product?.inWish) {
-                  deleteProductFromWishlist(product._id);
+                // if (!token) {
+                if (false) {
+                  navigate("/login", { state: { from: location.pathname } });
+                  notify("warn", "Please Login to continue");
                 } else {
-                  addProductToWishlist(product);
+                  if (product?.inWish) {
+                    deleteProductFromWishlist(product._id);
+                  } else {
+                    addProductToWishlist(product);
+                  }
                 }
               }}
             >
