@@ -105,17 +105,19 @@ const ProductDetails = () => {
               className="btn-rounded-secondary flex items-center gap-2 text-sm disabled:cursor-not-allowed"
               disabled={disableCart}
               onClick={() => {
-                if (false) {
-                  navigate("/login", { state: { from: location.pathname } });
-                  notify("warn", "Please Login to continue");
+                // if (false) {
+                //   navigate("/login", { state: { from: location.pathname } });
+                //   notify("warn", "Please Login to continue");
+                // } else {
+                if (localStorage.getItem("cart")?.includes(product._id)) {
+                  // If the product is already in the cart, throw an error
+                  notify("error", "Product is already in the cart");
                 } else {
-                  if (!product?.inCart) {
-                    addProductToCart(product);
-                    console.log("prodcut added to cart");
-                  } else {
-                    navigate("/cart");
-                  }
+                  addProductToCart(product);
+                  console.log("Product added to cart", product);
+                  notify("success", "Product Added to Cart");
                 }
+                // }
               }}
             >
               <HiOutlineShoppingBag />{" "}
