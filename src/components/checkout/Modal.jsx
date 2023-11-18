@@ -6,6 +6,7 @@ import OrderSummary from "./OrderSummary";
 import { useAuthContext, useCartContext } from "../../contexts";
 import appLogo from "../../assets/thugGlasses.png";
 import { useNavigate } from "react-router";
+import { notify } from "../../utils/utils";
 
 const Modal = ({ showModal, setShowModal }) => {
   const { userInfo } = useAuthContext();
@@ -15,11 +16,12 @@ const Modal = ({ showModal, setShowModal }) => {
 
   const clickHandler = () => {
     setDisableBtn(true);
-    setTimeout(() => {
-      setShowModal(false);
-      setDisableBtn(false);
-      displayRazorpay();
-    }, 1000);
+    // setTimeout(() => {
+    setShowModal(false);
+    setDisableBtn(false);
+    notify("success", "Thanks for placing order!!");
+    // displayRazorpay();
+    // }, 1000);
   };
   const loadScript = async (url) => {
     return new Promise((resolve) => {
