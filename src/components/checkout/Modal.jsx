@@ -51,7 +51,7 @@ const Modal = ({ showModal, setShowModal }) => {
     const options = {
       key: "rzp_test_H2lv7MTHG3JATn",
       amount: totalPriceOfCartProducts * 100,
-      currency: "INR",
+      currency: "Rs",
       name: "Party shope",
       description: "Be awesome with partyshope :)",
       image: appLogo,

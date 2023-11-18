@@ -59,7 +59,7 @@ const ProductListing = () => {
             <img
               src={bannerImg}
               alt="bannerImg"
-              className="rounded-md h-full min-h-[10rem] object-cover"
+              className="rounded-md h-16 sm:h-24 md:h-60 lg:h-26rem xl:h-58 w-full min-h-[10rem] object-cover object-center"
             />
           </header>
           <section className="py-3 flex flex-col md:flex-row gap-2 justify-between">

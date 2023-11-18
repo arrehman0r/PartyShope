@@ -6,7 +6,7 @@ export const initialState = {
   categoryList: [],
   maxRange: 0,
   filters: {
-    gender: "all",
+    // gender: "all",
     categories: [],
     priceRange: "",
     rating: "",
@@ -14,15 +14,15 @@ export const initialState = {
     searchText: "",
   },
   addressList: [
-    {
-      id: "61bf1558-94c3-4494-a522-0aad46ed5334",
-      fullname: "Jeon Jungkook",
-      mobile: "0637291830",
-      flat: "42, Yongsan Trade Center, Yongsan ",
-      area: "Hangang-daero",
-      city: "Seoul",
-      pincode: "04322",
-    },
+    // {
+    //   id: "61bf1558-94c3-4494-a522-0aad46ed5334",
+    //   fullname: "Amina",
+    //   mobile: "0637291830",
+    //   flat: "42, Guldast Town, Karachi ",
+    //   area: "",
+    //   city: "Karachi",
+    //   pincode: "04322",
+    // },
   ],
 };
 
@@ -71,7 +71,7 @@ export const productsReducer = (state, action) => {
         filters: {
           ...state.filters,
 
-          gender: "all",
+          // gender: "all",
           categories: [],
           priceRange: state.maxRange,
           rating: "",

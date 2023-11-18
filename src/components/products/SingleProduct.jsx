@@ -67,17 +67,17 @@ const SingleProduct = ({ product }) => {
             className={`border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md disabled:cursor-not-allowed`}
             disabled={disableCart}
             onClick={() => {
-              if (!token) {
-                navigate("/login", { state: { from: location.pathname } });
-                notify("warn", "Please Login to continue");
+              // if (!token) {
+              //   navigate("/login", { state: { from: location.pathname } });
+              //   notify("warn", "Please Login to continue");
+              // } else {
+              if (localStorage.getItem("cart")?.includes(product._id)) {
+                notify("error", "Product already in cart");
               } else {
-                if (!inCart) {
-                  addProductToCart(product);
-                } else {
-                  navigate("/cart");
-                }
+                addProductToCart(product);
               }
             }}
+            // }
           >
             {inCart ? "Go to Bag" : "Add to Bag"}
           </button>
@@ -85,16 +85,16 @@ const SingleProduct = ({ product }) => {
             disabled={disableWish}
             className="disabled:cursor-not-allowed"
             onClick={() => {
-              if (!token) {
-                navigate("/login", { state: { from: location.pathname } });
-                notify("warn", "Please Login to continue");
+              // if (!token) {
+              //   navigate("/login", { state: { from: location.pathname } });
+              //   notify("warn", "Please Login to continue");
+              // } else {
+              if (product?.inWish) {
+                deleteProductFromWishlist(product._id);
               } else {
-                if (product?.inWish) {
-                  deleteProductFromWishlist(product._id);
-                } else {
-                  addProductToWishlist(product);
-                }
+                addProductToWishlist(product);
               }
+              // }
             }}
           >
             {product.inWish ? (

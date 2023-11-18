@@ -86,7 +86,7 @@ const Navbar = () => {
               onClick={() => navigate("/cart")}
             >
               <HiOutlineShoppingBag />
-              {token && cart.length > 0 && (
+              {cart.length > 0 && (
                 <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-rose-600 border-2 border-[--theme-color] rounded-full -top-2 -right-2 ">
                   {cart.length}
                 </div>
