@@ -112,7 +112,7 @@ const AddressForm = ({ setShowAddressForm, editAddress, setEditAddress }) => {
       </div>
 
       <div className="flex gap-3 mt-3 flex-wrap">
-        {!editAddress && (
+        {/* {!editAddress && (
           <button
             type="button"
             className="btn-rounded-secondary rounded-full flex items-center gap-2 text-sm p-1"
@@ -133,7 +133,7 @@ const AddressForm = ({ setShowAddressForm, editAddress, setEditAddress }) => {
           >
             Fill dummy values
           </button>
-        )}
+        )} */}
         <button
           type="button"
           className="btn-rounded-secondary rounded-full flex items-center gap-2 text-sm"
