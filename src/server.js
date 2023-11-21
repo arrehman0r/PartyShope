@@ -26,7 +26,7 @@ import { categories } from "./backend/db/categories";
 import { products } from "./backend/db/products";
 import { users } from "./backend/db/users";
 
-export function makeServer({ environment = "development" } = {}) {
+export function makeServer({ environment = "production" } = {}) {
   return new Server({
     serializers: {
       application: RestSerializer,
@@ -60,6 +60,7 @@ export function makeServer({ environment = "development" } = {}) {
       // auth routes (public)
       this.post("/auth/signup", signupHandler.bind(this));
       this.post("/auth/login", loginHandler.bind(this));
+      this.passthrough("https://partyshope-backend.onrender.com/send-email");
 
       // products routes (public)
       this.get("/products", getAllProductsHandler.bind(this));

@@ -20,60 +20,35 @@ const Modal = ({ showModal, setShowModal }) => {
     setShowModal(false);
     setDisableBtn(false);
     notify("success", "Thanks for placing order!!");
+    sendOrderEmail();
     // displayRazorpay();
     // }, 1000);
   };
-  const loadScript = async (url) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = url;
+  const sendOrderEmail = async () => {
+    try {
+      const response = await fetch(
+        "https://partyshope-backend.onrender.com/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: "arrehman0r@gmail.com", // Replace with your email address
+            subject: "New Order Placed",
+            text: `A new order has been placed. Check the details in the admin panel.`,
+          }),
+        }
+      );
 
-      script.onload = () => {
-        resolve(true);
-      };
-
-      script.onerror = () => {
-        resolve(false);
-      };
-
-      document.body.appendChild(script);
-    });
-  };
-
-  const displayRazorpay = async () => {
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
-
-    if (!res) {
-      console.log("Razorpay SDK failed to load, check you connection", "error");
-      return;
+      if (response.ok) {
+        console.log("Email sent successfully");
+      } else {
+        console.error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
     }
-
-    const options = {
-      key: "rzp_test_H2lv7MTHG3JATn",
-      amount: totalPriceOfCartProducts * 100,
-      currency: "Rs",
-      name: "Party shope",
-      description: "Be awesome with partyshope :)",
-      image: appLogo,
-      handler: function () {
-        clearCart();
-        navigate("/orders", {
-          state: "orderSuccess",
-        });
-      },
-      prefill: {
-        name: userInfo ? userInfo.username : "Test",
-        email: userInfo ? userInfo.email : "abc@gmail.com",
-        contact: "9833445762",
-      },
-      theme: {
-        color: "#f9ca24",
-      },
-    };
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
   };
 
   return (
