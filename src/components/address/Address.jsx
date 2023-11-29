@@ -7,7 +7,24 @@ import AddressForm from "./AddressForm";
 const Address = ({ isEdit }) => {
   const [showAddressForm, setShowAddressForm] = useState(false);
   const [editAddress, setEditAddress] = useState(null);
-  const { addressList } = useProductsContext();
+  const { addressList, setAddressList } = useProductsContext();
+
+  const addAddress = (newAddress) => {
+    setAddressList((prevAddresses) => [...prevAddresses, newAddress]);
+  };
+
+  const updateAddress = (updatedAddress) => {
+    setAddressList((prevAddresses) =>
+      prevAddresses.map((address) =>
+        address.id === updatedAddress.id ? updatedAddress : address
+      )
+    );
+  };
+
+  const handleAddAddressClick = () => {
+    setShowAddressForm(true);
+    setEditAddress(null);
+  };
   return (
     <>
       {!isEdit && <h1 className="text-2xl font-bold">Address</h1>}
@@ -21,10 +38,7 @@ const Address = ({ isEdit }) => {
         <div className="flex flex-col items-start ">
           <button
             className="btn-rounded-primary text-sm "
-            onClick={() => {
-              setShowAddressForm(true);
-              setEditAddress(false);
-            }}
+            onClick={handleAddAddressClick}
           >
             + Add New Address
           </button>

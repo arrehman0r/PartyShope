@@ -142,10 +142,10 @@ const AddressForm = ({ setShowAddressForm, editAddress, setEditAddress }) => {
             setNewAddress({
               fullname: "",
               mobile: "",
-              flat: "",
+              address: "",
               area: "",
               city: "",
-              pincode: "",
+              // pincode: "",
             });
             if (editAddress) {
               setEditAddress(null);
