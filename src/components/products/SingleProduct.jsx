@@ -28,7 +28,8 @@ const SingleProduct = ({ product }) => {
     >
       <div
         // className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075] h-1/2 xs:h-full sm:h-1/2 xs:w-1/2 w-full sm:w-full"
-        className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full"
+        className="h-48 flex items-center justify-center p-0 xs:p-0 sm:p-0 bg-black/[0.075] xs:w-3/2 w-full sm:w-full"
+        // style={{ height: "200px" }}
         onClick={() => {
           navigate(`/product/${product._id}`);
         }}
@@ -36,7 +37,7 @@ const SingleProduct = ({ product }) => {
         <img
           src={product.image}
           alt=""
-          className="w-full object-cover xs:object-contain sm:object-cover h-28"
+          className="w-full object-cover xs:object-contain sm:object-cover h-full"
         />
       </div>
 
@@ -87,13 +88,15 @@ const SingleProduct = ({ product }) => {
             onClick={() => {
               // if (!token) {
               //   navigate("/login", { state: { from: location.pathname } });
-              //   notify("warn", "Please Login to continue");
+              notify("success", "Product added to wishlist");
               // } else {
-              if (product?.inWish) {
-                deleteProductFromWishlist(product._id);
-              } else {
-                addProductToWishlist(product);
-              }
+              // if (product?.inWish) {
+              // deleteProductFromWishlist(product._id);
+              // console.log("product deleted from wish list");
+              // } else {
+              //   // addProductToWishlist(product);
+              //   console.log("product added to wish list");
+              // }
               // }
             }}
           >

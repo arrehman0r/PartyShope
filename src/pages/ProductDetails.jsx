@@ -23,6 +23,8 @@ const ProductDetails = () => {
   const { addProductToWishlist, deleteProductFromWishlist, disableWish } =
     useWishlistContext();
   const [loading, setLoading] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
   const product = getProductById(productId);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const ProductDetails = () => {
   return (
     <div className="md:min-h-[80vh] flex justify-center items-center pt-5 sm:pt-3 pb-2 relative">
       <main className="grid grid-rows-1 sm:grid-cols-2 gap-2 sm:gap-10 ">
-        <section className="relative p-7 bg-black/[0.075]  flex items-center justify-center rounded-lg">
+        <section className="relative p-0.5 bg-black/[0.015]  flex items-center justify-center rounded-lg">
           <img
             src={product?.image}
             alt=""
@@ -79,12 +81,12 @@ const ProductDetails = () => {
               </div>
               <div>
                 <li>
-                  <span className="text-gray-500 text-sm">Gender: </span>
-                  {product?.gender}
+                  {/* <span className="text-gray-500 text-sm">Gender: </span>
+                  {product?.gender} */}
                 </li>
                 <li>
-                  <span className="text-gray-500 text-sm">Heavy: </span>
-                  {product?.weight}
+                  {/* <span className="text-gray-500 text-sm">Heavy: </span>
+                  {product?.weight} */}
                 </li>
               </div>
             </ul>
@@ -127,19 +129,22 @@ const ProductDetails = () => {
             <button
               className="btn-rounded-primary rounded-full flex items-center gap-2 text-sm disabled:cursor-not-allowed"
               disabled={disableWish}
-              onClick={() => {
-                // if (!token) {
-                if (false) {
-                  navigate("/login", { state: { from: location.pathname } });
-                  notify("warn", "Please Login to continue");
-                } else {
+              onClick={
+                () => {
+                  // if (!token) {
+                  // if (false) {
+                  //   navigate("/login", { state: { from: location.pathname } });
+                  //   notify("warn", "Please Login to continue");
+                  // } else {
                   if (product?.inWish) {
                     deleteProductFromWishlist(product._id);
                   } else {
                     addProductToWishlist(product);
+                    notify("success", "Product Added to Wishlist");
                   }
                 }
-              }}
+                // }
+              }
             >
               {product?.inWish ? (
                 <>
@@ -153,6 +158,35 @@ const ProductDetails = () => {
                 </>
               )}{" "}
             </button>
+          </div>
+        </section>
+        <section className="relative p-0.5 bg-black/[0.015]  flex items-center justify-center rounded-lg">
+          {/* <img
+            src={product?.images[selectedImageIndex]}
+            alt=""
+            className="w-full object-contain max-w-xs"
+          />
+          <div className="flex gap-2 mt-4">
+            {product?.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Thumbnail ${index}`}
+                className={`w-12 h-12 cursor-pointer border border-gray-300 ${
+                  index === selectedImageIndex ? "border-amber-500" : ""
+                }`}
+                onClick={() => setSelectedImageIndex(index)}
+              />
+            ))}
+          </div> */}
+        </section>
+
+        <section className="p-7 px-10 rounded-md shadow-sm bg-white/[0.7] flex flex-col gap-3 sm:gap-5 ">
+          <div className="flex flex-col gap-2">
+            <h1 className=" text-xs sm:text-2xl font-bold">Long Description</h1>
+            <p className=" text-gray-600 text-sm sm:text-base">
+              {product?.longDescription}
+            </p>
           </div>
         </section>
       </main>

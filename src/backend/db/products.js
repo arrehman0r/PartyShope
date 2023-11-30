@@ -1,7 +1,9 @@
 import leaves from "../../assets/leaves-decorations.webp";
 import hangingvase from "../../assets/hanging-vase.png";
 import stringlight from "../../assets/string-light.jpg";
-
+import leavesImage1 from "../../assets/image1_ZOELNIC-Battery-Operated-Vine-Fairy-String-Lights-50LED-Artificial-Leaf-Hanging-Garland-Light-for-Christmas-Wedding-Bouquets-Party-Event-Home-Decor_75213a2a-4cc9-4246-bcb2-684a97a5ad82..webp";
+import leavesImage2 from "../../assets/image2_85b96618-df62-4035-aa9d-ac70bc91ec2d.b9459b38c5b12aa35bd07cff94c70481.webp";
+import leavesImage3 from "../../assets/image3_a68d04fd-02d0-4e61-8688-22ae9f3c26a0.7b7d0449140a4c70259fed2ea5bc8c6e.jpeg";
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -12,13 +14,16 @@ export const products = [
     qty: 0,
     name: "Leaves Decorations",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Premium Quality String Bulbs and Artificial Leaves - Luminous Romantic and Aesthetic Look for Room and Party Decoration-Indoor and Outdoor-Main Door Balcony-Bedroom Vine Creepers",
     brand: "Party Shope",
+    longDescription:
+      "Quality: Excellent-quality plastic stems and fabric leaves; Waterproof & Easy to Clean. Decoration: Wall, home, door, indoor, and outdoor decor; Year-round use. Low Maintenance: Minimal care compared to real plants; No watering, plant food, or fertilizer needed; Easy to clean and dust. Package Contents: 1 Artificial Ivy Leaves Creeper + 1 10-Feet LED Fairy Light; Each vine creeper is approximately 7 feet. Cleaning Tips: Soak in soapy water for 5 minutes; Gently wash with hands; Ready to use again and again with minimal effort.",
+
     category: "decore",
     // gender: "Men",
     weight: "200g",
     quantity: 10,
-    image: leaves,
+    images: [leaves, leavesImage1, leavesImage2, leavesImage3],
     rating: 4.9,
     price: 1999,
     newPrice: 1899,

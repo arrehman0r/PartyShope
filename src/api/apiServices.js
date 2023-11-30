@@ -59,28 +59,28 @@ export const deleteProductFromCartService = (productId, token) =>
     },
   });
 
-export const getWishlistItemsService = (token) =>
+export const getWishlistItemsService = () =>
   axios.get(WISHLIST_URL, {
     headers: {
-      authorization: token,
+      authorization: true,
     },
   });
 
-export const postAddProductToWishlistService = (product, token) =>
+export const postAddProductToWishlistService = (product) =>
   axios.post(
     WISHLIST_URL,
     { product },
     {
       headers: {
-        authorization: token,
+        authorization: true,
       },
     }
   );
 
-export const deleteProductFromWishlistService = (productId, token) =>
+export const deleteProductFromWishlistService = (productId) =>
   axios.delete(`${WISHLIST_URL}/${productId}`, {
     headers: {
-      authorization: token,
+      authorization: true,
     },
   });
 

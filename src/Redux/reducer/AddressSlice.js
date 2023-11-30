@@ -4,10 +4,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const shippingAddressSlice = createSlice({
   name: "shippingAddress",
   initialState: {
+    fullname: "",
+    mobile: "",
     address: "",
+    area: "",
     city: "",
-    postalCode: "",
-    country: "",
   },
   reducers: {
     setAddress: (state, action) => {

@@ -5,12 +5,19 @@ import spinningLoader from "../../assets/spinning-circles.svg";
 import OrderSummary from "./OrderSummary";
 import { useAuthContext, useCartContext } from "../../contexts";
 import appLogo from "../../assets/thugGlasses.png";
+import { useProductsContext } from "../../contexts";
+
 import { useNavigate } from "react-router";
 import { notify } from "../../utils/utils";
 
 const Modal = ({ showModal, setShowModal }) => {
   const { userInfo } = useAuthContext();
-  const { clearCart, totalPriceOfCartProducts } = useCartContext();
+  // const { clearCart, totalPriceOfCartProducts } = useCartContext();
+  const { addressList, currentAddress } = useProductsContext();
+  const { cart, totalPriceOfCartProducts, actualPriceOfCart } =
+    useCartContext();
+  const totalItems = cart.reduce((acc, { qty }) => acc + qty, 0);
+
   const [disableBtn, setDisableBtn] = useState(false);
   const navigate = useNavigate();
 
@@ -36,7 +43,30 @@ const Modal = ({ showModal, setShowModal }) => {
           body: JSON.stringify({
             to: "arrehman0r@gmail.com", // Replace with your email address
             subject: "New Order Placed",
-            text: `A new order has been placed. Check the details in the admin panel.`,
+            text: `
+              A new order has been placed. 
+              Order Details:
+              Address:
+              Full Name: ${currentAddress.fullname}
+              Mobile: ${currentAddress.mobile}
+              Address: ${currentAddress.flat}, ${currentAddress.area}, ${
+              currentAddress.city
+            } - ${currentAddress.pincode}
+  
+              Cart Details:
+              ${cart
+                .map(
+                  (item) => `
+                Product: ${item.name}
+                Quantity: ${item.qty}
+                Price: ${item.price * item.qty}
+                ------------------------
+              `
+                )
+                .join("")}
+  
+              Total Price: ${totalPriceOfCartProducts}
+            `,
           }),
         }
       );
